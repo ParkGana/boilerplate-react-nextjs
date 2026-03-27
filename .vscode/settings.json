@@ -1,0 +1,10 @@
+{
+  // 파일 저장 시 자동으로 Prettier 적용
+  "editor.formatOnSave": true,
+
+  // 마크다운 파일의 경우 Prettier 미적용
+  "[markdown]": {
+    "editor.defaultFormatter": "vscode.markdown-language-features",
+    "editor.formatOnSave": false
+  }
+}
