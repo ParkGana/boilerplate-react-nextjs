@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
+import Provider from '@/provider';
 import '../styles/globals.css';
 import '../styles/tailwind.css';
-import Provider from '@/provider';
 
 export const metadata: Metadata = {
   title: 'Boilerplate - React Next.js',
