@@ -189,3 +189,108 @@ yarn add -D prettier-plugin-tailwindcss
 ```
 
 </details>
+
+<br />
+
+<!-- 조건부 라우팅 설정 -->
+<details>
+
+<summary><strong>조건부 라우팅 설정</strong></summary>
+<br />
+
+```tsx
+/* src/middleware.ts */
+
+import { NextRequest, NextResponse } from 'next/server';
+
+const AUTHENTICATED_URL = ['/'];
+const NON_AUTHENTICATED_URL = ['/signin'];
+
+export const middleware = (req: NextRequest) => {
+  const url = req.nextUrl.clone();
+
+  const isAuthenticated = !!req.cookies.get('isAuthenticated');
+
+  if (!isAuthenticated && AUTHENTICATED_URL.includes(url.pathname)) {
+    url.pathname = '/signin';
+    return NextResponse.redirect(url);
+  }
+
+  if (isAuthenticated && NON_AUTHENTICATED_URL.includes(url.pathname)) {
+    url.pathname = '/';
+    return NextResponse.redirect(url);
+  }
+
+  return NextResponse.next();
+};
+
+export const config = {
+  matcher: ['/', '/signin'],
+};
+```
+
+```tsx
+/* src/providers/authProvider.tsx */
+
+'use client';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+
+type AuthContextType = {
+  isAuthenticated: boolean;
+  signIn: () => void;
+  signOut: () => void;
+};
+
+const AuthContext = createContext<AuthContextType | null>(null);
+
+const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+
+  useEffect(() => {
+    const cookie = document.cookie
+      .split('; ')
+      .find((cookie) => cookie.startsWith('isAuthenticated='))
+      ?.split('=')[1];
+
+    setIsAuthenticated(!!cookie);
+  }, []);
+
+  const signIn = useCallback(() => {
+    setIsAuthenticated(true);
+    document.cookie = `isAuthenticated=true; path=/`;
+    window.location.href = '/';
+  }, []);
+
+  const signOut = useCallback(() => {
+    setIsAuthenticated(false);
+    document.cookie = `isAuthenticated=; path=/; max-age=0`;
+    window.location.href = '/signin';
+  }, []);
+
+  const value = useMemo(() => ({ isAuthenticated, signIn, signOut }), [isAuthenticated, signIn, signOut]);
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+};
+
+export default AuthProvider;
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) throw new Error();
+  return context;
+};
+```
+
+```tsx
+/* src/provider.tsx */
+
+import AuthProvider from './providers/authProvider';
+
+const Provider = ({ children }: { children: React.ReactNode }) => {
+  return <AuthProvider>{children}</AuthProvider>;
+}
+
+export default Provider;
+```
+
+</details>

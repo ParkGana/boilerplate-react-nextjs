@@ -1,11 +1,11 @@
 import AuthButton from '@/components/element/AuthButton';
 
-const HomePage = () => {
+const SignInPage = () => {
   return (
     <div className="flex h-[100vh] items-center justify-center">
-      <AuthButton isAuthenticated={true} />
+      <AuthButton isAuthenticated={false} />
     </div>
   );
 };
 
-export default HomePage;
+export default SignInPage;
