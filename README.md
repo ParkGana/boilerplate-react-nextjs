@@ -93,3 +93,41 @@ yarn add -D prettier
 ```
 
 </details>
+
+<br />
+
+<!-- Provider 설정 -->
+<details>
+
+<summary><strong>Provider 설정</strong></summary>
+<br />
+
+```tsx
+/* src/provider.tsx */
+
+const Provider = ({ children }: { children: React.ReactNode }) => {
+  return <>{children}</>;
+}
+
+export default Provider;
+```
+
+```tsx
+/* src/app/layout.tsx */
+
+import Provider from '@/provider';
+
+const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
+  return (
+    <html lang="en">
+      <body>
+        <Provider>{children}</Provider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+```
+
+</details>
