@@ -64,3 +64,32 @@ yarn add -D prettier
 ```
 
 </details>
+
+<br />
+
+<!-- 전역 Font 및 CSS 설정 -->
+<details>
+
+<summary><strong>전역 Font 및 CSS 설정</strong></summary>
+<br />
+
+```css
+/* src/styles/globals.css */
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/PretendardVariable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  font-family: Pretendard;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+```
+
+</details>
