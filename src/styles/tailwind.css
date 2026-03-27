@@ -1,3 +1,112 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --neutral-100: #fafafa;
+  --neutral-200: #e0e0e0;
+  --neutral-300: #c7c7c7;
+  --neutral-400: #adadad;
+  --neutral-500: #949494;
+  --neutral-600: #7a7a7a;
+  --neutral-700: #616161;
+  --neutral-800: #474747;
+  --neutral-900: #2e2e2e;
+}
+
+/* 반응형 Typography를 적용하고 싶은 경우 사용 */
+/* @layer components {
+  .titleL {
+    @apply text-[40px] font-bold leading-[1.2];
+  }
+  .titleM {
+    @apply text-[32px] font-bold leading-[1.2];
+  }
+  .titleS {
+    @apply text-[24px] font-bold leading-[1.2];
+  }
+
+  .labelL {
+    @apply text-[18px] font-bold leading-[1.35];
+  }
+  .labelM {
+    @apply text-[16px] font-bold leading-[1.35];
+  }
+  .labelS {
+    @apply text-[14px] font-bold leading-[1.35];
+  }
+
+  .bodyL {
+    @apply text-[18px] font-medium leading-[1.5];
+  }
+  .bodyM {
+    @apply text-[16px] font-medium leading-[1.5];
+  }
+  .bodyS {
+    @apply text-[14px] font-medium leading-[1.5];
+  }
+
+  .caption {
+    @apply text-[12px] font-medium leading-[1.35];
+  }
+}
+
+@layer components {
+  .text-title1 {
+    @apply titleM;
+  }
+  @screen lg {
+    .text-title1 {
+      @apply titleL;
+    }
+  }
+
+  .text-title2 {
+    @apply titleS;
+  }
+  @screen lg {
+    .text-title2 {
+      @apply titleM;
+    }
+  }
+
+  .text-label1 {
+    @apply labelM;
+  }
+  @screen lg {
+    .text-label1 {
+      @apply labelL;
+    }
+  }
+
+  .text-label2 {
+    @apply labelS;
+  }
+  @screen lg {
+    .text-label2 {
+      @apply labelM;
+    }
+  }
+
+  .text-body1 {
+    @apply bodyM;
+  }
+  @screen lg {
+    .text-body1 {
+      @apply bodyL;
+    }
+  }
+
+  .text-body2 {
+    @apply bodyS;
+  }
+  @screen lg {
+    .text-body2 {
+      @apply bodyM;
+    }
+  }
+
+  .text-caption {
+    @apply caption;
+  }
+} */
