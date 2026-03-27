@@ -167,3 +167,25 @@ yarn add -D @trivago/prettier-plugin-sort-imports
 ```
 
 </details>
+
+<br />
+
+<!-- Tailwind CSS 순서 자동 정렬되도록 설정 (Prettier 설정 필요) -->
+<details>
+
+<summary><strong>Tailwind CSS 순서 자동 정렬되도록 설정 (Prettier 설정 필요)</strong></summary>
+<br />
+
+```bash
+yarn add -D prettier-plugin-tailwindcss
+```
+
+```json
+/* .prettierrc */
+
+{	
+	"plugins": ["prettier-plugin-tailwindcss"],
+}
+```
+
+</details>
