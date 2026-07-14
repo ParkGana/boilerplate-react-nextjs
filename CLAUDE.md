@@ -121,6 +121,8 @@ src/
 
 - `interface` 대신 `type`을 사용합니다.
 
+- 컴포넌트는 `export default`로 내보냅니다. (`const Foo = () => {...}; export default Foo;`)
+
 - 스타일은 기본적으로 `style`이 아닌 `className` 속성에 Tailwind CSS로 작성합니다. 동적으로 계산되는 값처럼 Tailwind CSS만으로는 구현하기 어려운 경우에 한해 `style` 속성을 예외적으로 사용합니다.
 
 - 조건부 스타일 적용이 필요할 때는 `twMerge`를 사용합니다.
